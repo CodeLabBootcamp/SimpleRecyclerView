@@ -2,7 +2,7 @@ package camp.codelab.dynamiclayout
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,18 +11,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val car1: Car = Car(model = 2019, name = "BMW", make = "German", color = "Black")
-        val car2: Car = Car("Kia", "Korean", 2017, "White")
-        val car3: Car = Car("QQ", "Chinese", 2008, "Green")
+
+        val e1 = Employee("Haider", 1000f, "Marketing")
+        val e2 = Employee("Fadhil", 0f, "Free")
+        val e3 = Employee("Qais", 2000f, "Couple With Layla")
+        val e4 = Employee("Sarmad", 205f, "Butterfly")
+        val e5 = Employee("Sasuki", 10000f, "Bodyguard")
 
 
-        val carsArray = listOf(car1, car2, car3, car2, car1)
+        val employeeList = listOf(e1, e2, e3, e4, e5, e1, e2, e3, e4, e5, e1, e2, e3, e4, e5)
 
-
-        val adapter = CarsAdapter(carsArray)
-
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
-        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = EmployeesAdapter(employeeList)
 
 
     }
